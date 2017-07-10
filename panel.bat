@@ -41,6 +41,7 @@ echo 29. windows update
 echo 30. wmi control
 echo 31. performance monitor
 echo 32. local security policy
+echo 33. taskbar
 echo.
 echo x. exit
 echo.
@@ -181,6 +182,10 @@ exit /b
 
 :32
 start mmc secpol.msc
+exit /b
+
+:33
+start control.exe /name microsoft.taskbarandstartmenu
 exit /b
 
 :x
