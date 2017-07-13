@@ -42,6 +42,7 @@ echo 30. wmi control
 echo 31. performance monitor
 echo 32. local security policy
 echo 33. taskbar
+echo 34. safely remove hardware
 echo.
 echo x. exit
 echo.
@@ -185,7 +186,11 @@ start mmc secpol.msc
 exit /b
 
 :33
-start control.exe /name microsoft.taskbarandstartmenu
+start control /name microsoft.taskbarandstartmenu
+exit /b
+
+:34
+start control hotplug.dll
 exit /b
 
 :x
