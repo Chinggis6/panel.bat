@@ -51,8 +51,8 @@ echo 39. internet properties
 echo 40. computer defaults
 echo 41. default programs
 echo 42. credential manager
-echo 43. Customer Experience Improvement Program
-echo 44. Add Network Location
+echo 43. customer experience improvement program
+echo 44. add network location
 echo 45. safely remove hardware
 echo.
 echo x. exit
