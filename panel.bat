@@ -42,6 +42,18 @@ echo 30. wmi control
 echo 31. performance monitor
 echo 32. local security policy
 echo 33. taskbar
+echo 34. network and sharing center
+echo 35. background
+echo 36. display
+echo 37. region
+echo 38. power options
+echo 39. internet properties
+echo 40. computer defaults
+echo 41. default programs
+echo 42. credential manager
+echo 43. Customer Experience Improvement Program
+echo 44. Add Network Location
+echo 45. safely remove hardware
 echo.
 echo x. exit
 echo.
@@ -84,6 +96,7 @@ start mmc wf.msc
 exit /b
 
 :9
+rem control appwiz.cpl,,2
 start optionalfeatures
 exit /b
 
@@ -145,6 +158,7 @@ start mmc printmanagement.msc
 exit /b
 
 :23
+rem control netconnections
 start control ncpa.cpl
 exit /b
 
@@ -165,6 +179,7 @@ start mmc taskschd.msc
 exit /b
 
 :28
+rem control /name microsoft.windowsfirewall
 start control firewall.cpl
 exit /b
 
@@ -185,7 +200,59 @@ start mmc secpol.msc
 exit /b
 
 :33
-start control.exe /name microsoft.taskbarandstartmenu
+start control /name microsoft.taskbarandstartmenu
+exit /b
+
+:34
+start control /name microsoft.networkandsharingcenter
+exit /b
+
+:35
+start control desktop
+exit /b
+
+:36
+start dpiscaling
+exit /b
+
+:37
+start control intl.cpl
+exit /b
+
+:38
+start control powercfg.cpl
+exit /b
+
+:39
+start control inetcpl.cpl
+exit /b
+
+:40
+rem start control appwiz.cpl,,3
+start computerdefaults
+exit /b
+
+:41
+start control.exe /name microsoft.defaultprograms
+exit /b
+
+:42
+start control.exe /name microsoft.credentialmanager
+exit /b
+
+:43
+rem https://msdn.microsoft.com/en-us/library/dn449424%28v=winembedded.82%29.aspx?f=255&MSPPError=-2147217396
+rem HKLM\Software\Microsoft\SQMClient\Windows\CEIPEnable
+start rundll32 werconcpl.dll,ShowCEIPDialog
+exit /b
+
+:44
+start rundll32 %systemroot%\system32\shwebsvc.dll,AddNetPlaceRunDll
+rem windows share, ftp
+exit /b
+
+:45
+start control hotplug.dll
 exit /b
 
 :x
