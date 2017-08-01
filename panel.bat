@@ -204,7 +204,6 @@ start control /name microsoft.taskbarandstartmenu
 exit /b
 
 :34
-<<<<<<< HEAD
 start control /name microsoft.networkandsharingcenter
 exit /b
 
